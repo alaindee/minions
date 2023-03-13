@@ -173,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              // appointment container
               Row(
                 children: [
                   Expanded(
@@ -226,9 +227,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin: const EdgeInsets.only(top: 5.0),
                               padding: const EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
-                                  color: Colors.grey.shade100,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10.0))),
+                                color: Colors.grey.shade100,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10.0)),
+                              ),
                               child: const Text(
                                 'Mon, Mar 13 3:30 pm',
                                 style: TextStyle(fontWeight: FontWeight.w300),
@@ -246,12 +248,42 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             )
                           ],
-                        )
+                        ),
                       ]),
                     ),
                   ),
                 ],
               ),
+              // Call office button/item
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(10.0),
+                      margin: const EdgeInsets.only(top: 25.0),
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 58, 204, 185),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10.0)),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(.5),
+                                spreadRadius: 2,
+                                blurRadius: 4,
+                                offset: const Offset(0, 2))
+                          ]),
+                      child: Row(children: const [
+                        Icon(
+                          Icons.phone,
+                          size: 30,
+                        ),
+                        Text('Call Agency')
+                      ]),
+                    ),
+                  )
+                ],
+              ),
+              // end of the call button/item
               const Spacer(
                 flex: 1,
               ),
@@ -278,11 +310,11 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            //label: 'Home',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month_outlined),
-            //label: 'Appointments',
+            label: 'Appointments',
           ),
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.note),
@@ -290,7 +322,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_outlined),
-            //label: 'Profile',
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
